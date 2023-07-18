@@ -34,32 +34,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Post content-->
-                    <article>
-                        <!-- Post header-->
-                        <header class="mb-4">
-                            <!-- Post title-->
-                            <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
-                            <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
-                        </header>
-                        <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
-                        <!-- Post content-->
-                        <section class="mb-5">
-                        
-                            <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
-                        </section>
-                    </article>
-                    <!-- Comments section-->
-                    <section class="mb-5">
-                        <div class="card bg-light">
-                             <!-- Comment Section-->
-                             @yield('content')
-                        </div>
-                    </section>
+                    @yield('content')
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
