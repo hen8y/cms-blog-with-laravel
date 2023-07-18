@@ -22,9 +22,9 @@
                             <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Admin</a></li>
                         }
                         @endif
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                     </ul>
                 </div>
             </div>
