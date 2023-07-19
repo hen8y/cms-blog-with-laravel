@@ -45,11 +45,11 @@ class PostController extends Controller
 
     // }
 
-    public function __get($value) {
+    public function getPostImageAttribute($value) {
         if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
-            return $this->getPostImageAttribute->$value;
+            return $value;
         }
-        return $this->getPostImageAttribute->asset('storage/' . $value);
+        return asset('storage/' . $value);
         }
         
 }
