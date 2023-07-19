@@ -39,4 +39,17 @@ class PostController extends Controller
 
         return view('admin.posts.index', ['outputs'=>$outputs]);
     }
+
+    // public function setPostImageAtrribute($value){
+    //     $this->attributes('post_image')->asset($value);
+
+    // }
+
+    public function __get($value) {
+        if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
+            return $this->getPostImageAttribute->$value;
+        }
+        return $this->getPostImageAttribute->asset('storage/' . $value);
+        }
+        
 }
