@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Post;
-
-
 class PostController extends Controller
 {
     //
@@ -27,6 +26,11 @@ class PostController extends Controller
         if(request('post_image')){
             $input['post_image'] = request('post_image')->store('images');
         }
-        auth()->user()->posts()->create($input);
+
+       $auth = auth()->user()->posts();
+
+        return dd($auth);
+
+
     }
 }
