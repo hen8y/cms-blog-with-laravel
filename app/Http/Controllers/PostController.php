@@ -27,10 +27,15 @@ class PostController extends Controller
             $input['post_image'] = request('post_image')->store('images');
         }
 
-       $auth = auth()->user()->posts();
+       auth()->user()->posts()->create($input);
 
-        return dd($auth);
+        return back();
 
 
+    }
+
+    public function index(){
+
+        return view('admin.posts.index');
     }
 }

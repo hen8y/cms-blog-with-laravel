@@ -2,7 +2,7 @@
     @section('content')
         <h1 class="col-12 mb-5">Create Post</h1>
 
-                <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" class="w-50">
+                <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" class="w-100">
                     @csrf
                     <div class="form-group">
                         <label for="title" class=" form-control-label">Title</label>

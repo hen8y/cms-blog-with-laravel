@@ -2,7 +2,7 @@
        <aside class="menu-sidebar d-none d-lg-block">
         <div class="logo">
             <a href="#">
-                <img src="images/icon/logo.png" alt="Cool Admin" />
+                <img src="{{ asset('images/icon/logo.png') }}" alt="Cool Admin" />
             </a>
         </div>
         <div class="menu-sidebar__content js-scrollbar1">
@@ -21,8 +21,8 @@
                             <i class="fas fa-table"></i>Blogs</a>
                     </li>
                     <li>
-                        <a href="form.html">
-                            <i class="far fa-check-square"></i>Forms</a>
+                        <a href="{{ route('post.index') }}">
+                            <i class="far fa-check-square"></i>View All Posts</a>
                     </li>
                     <li>
                         <a href="calendar.html">
