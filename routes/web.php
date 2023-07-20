@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/posts','\App\Http\Controllers\PostController@store')->name('post.store');
 
 
-    Route::patch('/admin/posts','\App\Http\Controllers\PostController@update')->name('post.update');
+    Route::patch('/admin/posts/{post}/update','\App\Http\Controllers\PostController@update')->name('post.update');
 
     Route::delete('/admin/posts/{post}/destroy','\App\Http\Controllers\PostController@destroy')->name('post.destroy');
 
