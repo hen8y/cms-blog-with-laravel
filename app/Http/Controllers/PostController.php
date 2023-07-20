@@ -29,7 +29,10 @@ class PostController extends Controller
 
        auth()->user()->posts()->create($input);
 
-        return back();
+        session()->flash('message', 'New Post Added');
+        session()->flash('alert-class', 'alert-success');
+
+        return redirect(route('post.index'));
 
 
     }
@@ -39,17 +42,36 @@ class PostController extends Controller
 
         return view('admin.posts.index', ['outputs'=>$outputs]);
     }
+    public function edit(Post $post){
 
-    // public function setPostImageAtrribute($value){
-    //     $this->attributes('post_image')->asset($value);
+        return view('admin.posts.edit', ['post'=>$post]);
+    }
 
-    // }
+    public function update(Post $post){
+        $input = request()->validate([
+            'title'=> 'required|min:8|max:255',
+            'post_image'=>'file',
+            'body'=>'required'
+        ]);
 
-    public function getPostImageAttribute($value) {
-        if (strpos($value, 'https://') !== FALSE || strpos($value, 'http://') !== FALSE) {
-            return $value;
+        if(request('post_image')){
+            $input['post_image']->request('post_image')->store('images');
+            $post->post_image =  $input['post_image'];
         }
-        return asset('storage/' . $value);
-        }
-        
+        $post->title =  $input['title'];
+        $post -> body =  $input['body'];
+
+
+        auth()->user()->save($post);
+
+    }
+    public function destroy(Post $post){
+
+        $post->delete();
+
+        session()->flash('message', 'Post was deleted');
+        session()->flash('alert-class', 'alert-danger');
+
+        return back();
+    }
 }
