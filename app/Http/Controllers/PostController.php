@@ -38,12 +38,12 @@ class PostController extends Controller
     }
 
     public function index(){
-        $posts = auth()->user()->posts;
-
+        $posts = Post::all();
         return view('admin.posts.index', ['posts'=>$posts]);
     }
     public function edit(Post $post){
 
+        $this->authorize('view', $post);
         return view('admin.posts.edit', ['post'=>$post]);
     }
 
@@ -53,6 +53,7 @@ class PostController extends Controller
         session()->flash('message', 'Post was deleted');
         session()->flash('alert-class', 'alert-danger');
 
+        $this -> authorize('delete',$post);
         return back();
 
     }
@@ -74,7 +75,10 @@ class PostController extends Controller
         auth()->user()->posts()->save($post);
         session()->flash('message', 'Post Has been Updated');
         session()->flash('alert-class', 'alert-success');
-        
+
+        $this -> authorize('update',$post);
+
+
         return redirect(route('post.index'));
     }
 }

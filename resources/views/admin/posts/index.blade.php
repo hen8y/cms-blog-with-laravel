@@ -32,6 +32,7 @@
                         <td>{{ $post->created_at->diffForHumans() }}</td>
                         <td>{{ $post->updated_at->diffForHumans() }}</td>
                         <td class="divide">
+                            @can('view', $post)
                             <a href="{{ route('post.edit',$post->id)}}" class="btn btn-info">Edit</a>
 
                             <form action="{{ route('post.destroy', $post->id) }}" method="post" enctype="multipart/form-data">
@@ -39,6 +40,8 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
+
+                            @endcan
                         </td>
                             
                     </tr>
