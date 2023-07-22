@@ -38,7 +38,7 @@ class PostController extends Controller
     }
 
     public function index(){
-        $posts = Post::all();
+        $posts = auth()->user()->posts()->paginate(5);
         return view('admin.posts.index', ['posts'=>$posts]);
     }
     public function edit(Post $post){

@@ -309,9 +309,7 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="row mt-5 p-3">
                            @yield('content')
-                        </div>
                     </div>
                 </div>
             </div>

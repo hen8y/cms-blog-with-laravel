@@ -1,11 +1,12 @@
 <x-admin-master>
     @section('content')
-
-       <div class="col-7">
-            <h1>All Posts</h1>
-        </div> 
-        <div class="col-5">
-            <a href="{{ route('post.create') }}" class="btn btn-info btn-lg">Create a Post</a>
+        <div class="row">
+            <div class="col-7">
+                <h1>All Posts</h1>
+            </div> 
+            <div class="col-5">
+                <a href="{{ route('post.create') }}" class="btn btn-info btn-lg">Create a Post</a>
+            </div>
         </div>
         <br>
         @if (session()->get('message'))
@@ -31,25 +32,26 @@
                         <td><img src="{{ $post->post_image }}" style="width:150px;height:60px"></td>
                         <td>{{ $post->created_at->diffForHumans() }}</td>
                         <td>{{ $post->updated_at->diffForHumans() }}</td>
-                        <td class="divide">
-                            @can('view', $post)
-                            <a href="{{ route('post.edit',$post->id)}}" class="btn btn-info">Edit</a>
+                        <td>
+                            <div class="divide">
+                                @can('view', $post)
+                                <a href="{{ route('post.edit',$post->id)}}" class="btn btn-info">Edit</a>
 
-                            <form action="{{ route('post.destroy', $post->id) }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                                <form action="{{ route('post.destroy', $post->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
 
-                            @endcan
+                                @endcan
+                            </div>
                         </td>
-                            
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-
+        {{ $posts->links() }}
     @endsection
 
 </x-admin-master>
