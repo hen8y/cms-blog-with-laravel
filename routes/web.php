@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\HomeController;
+use App\Models\User;
+use App\Models\Post;
 
 
 /*
@@ -39,6 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/posts/{post}/destroy','\App\Http\Controllers\PostController@destroy')->name('post.destroy');
 
     Route::get('/admin/posts/{post}/edit','\App\Http\Controllers\PostController@edit')->name('post.edit');
+    
+});
+
+Route::get('/find', function () {
+
+    $user =  User::findOrFail(1);
+
+    return $user->posts()->title;
+
     
 });
 

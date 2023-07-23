@@ -11,16 +11,8 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
-        \App\Models\Post::factory(10)->create()->each(function($user){
-
-            $user->posts()->save(Post::factory()->make());
-        });
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+       Post::factory(10)->create();
     }
 }
