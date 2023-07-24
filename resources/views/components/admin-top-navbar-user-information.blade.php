@@ -1,7 +1,7 @@
 <div class="account-wrap">
     <div class="account-item clearfix js-item-menu">
         <div class="image">
-            <img src="{{ asset('images/icon/avatar-01.jpg') }}" alt="John Doe" />
+            <img src="{{ auth()->user()->avatar }}" alt="John Doe" />
         </div>
         <div class="content">
             <a class="js-acc-btn" href="#">
@@ -14,21 +14,17 @@
             <div class="info clearfix">
                 <div class="image">
                     <a href="#">
-                        <img src="{{ asset('images/icon/avatar-01.jpg') }}" alt="John Doe" />
+                        <img src="{{ auth()->user()->avatar }}" alt="John Doe" />
                     </a>
                 </div>
                 <div class="content">
                     <h5 class="name">
                         <a href="#"> 
-                            @if(Auth::check())
                             {{ auth()->user()->name }}
-                            @endif
                         </a>
                     </h5>
                     <span class="email">
-                        @if(Auth::check())
                         {{ auth()->user()->email }}
-                        @endif
                     </span>
                 </div>
             </div>

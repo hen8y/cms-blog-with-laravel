@@ -137,7 +137,10 @@
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
                     <x-admin-sidebar-posts-links></x-admin-sidebar-posts-links>
-                    <x-admin-sidebar-users-links></x-admin-sidebar-users-links>
+
+                    @if(auth()->user()->userHasRole('Admin'))
+                        <x-admin-sidebar-users-links></x-admin-sidebar-users-links>
+                    @endif
                 </ul>
             </nav>
         </div>

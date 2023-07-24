@@ -11,7 +11,6 @@ class UserController extends Controller
     public function index (){
 
         $users = User::all();
-
         return view('admin.users.index',['users'=>$users]);
 
     }
@@ -32,10 +31,16 @@ class UserController extends Controller
         if( request('avatar')){
             $validator['avatar']= request('avatar')->store('images');
         }
-
         $user->update($validator);
 
         return back();
 
+    }
+
+    public function destroy(User $user){
+
+        $user->delete();
+        session()->flash('message', 'User Delete Successful');
+        return back();
     }
 }

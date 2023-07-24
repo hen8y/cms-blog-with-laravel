@@ -42,11 +42,19 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/posts/{post}/edit','\App\Http\Controllers\PostController@edit')->name('post.edit');
 
-    Route::get('/admin/users/{user}/profile','\App\Http\Controllers\UserController@show')->name('user.profile.show');
 
     Route::put('/admin/users/{user}/update','\App\Http\Controllers\UserController@update')->name('user.profile.update');
 
-    Route::get('/admin/users/','\App\Http\Controllers\UserController@index')->name('users.index');
+    Route::delete('/admin/users/{user}','\App\Http\Controllers\UserController@destroy')->name('users.destroy');
 
 });
 
+Route::middleware('role:admin', 'auth')->group(function () {
+    Route::get('admin/users/','\App\Http\Controllers\UserController@index')->name('users.index');
+});
+
+Route::middleware('role:admin')->group(function () {
+    
+    Route::get('/admin/users/{user}/profile','\App\Http\Controllers\UserController@show')->name('user.profile.show');
+
+});
