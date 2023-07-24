@@ -41,15 +41,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/posts/{post}/destroy','\App\Http\Controllers\PostController@destroy')->name('post.destroy');
 
     Route::get('/admin/posts/{post}/edit','\App\Http\Controllers\PostController@edit')->name('post.edit');
-    
-});
 
-Route::get('/find', function () {
+    Route::get('/admin/users/{user}/profile','\App\Http\Controllers\UserController@show')->name('user.profile.show');
 
-    $user =  User::findOrFail(1);
+    Route::put('/admin/users/{user}/update','\App\Http\Controllers\UserController@update')->name('user.profile.update');
 
-    return $user->posts()->title;
+    Route::get('/admin/users/','\App\Http\Controllers\UserController@index')->name('users.index');
 
-    
 });
 
