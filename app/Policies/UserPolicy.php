@@ -21,6 +21,7 @@ class UserPolicy
     public function view(User $user, User $model): bool
     {
         //
+        return $user->userHasRole('admin') ?: $user->id == $model->id;
     }
 
     /**

@@ -1,4 +1,4 @@
-<x-admin-master>
+<x-admin.admin-master>
     @section('content')
         <div class="row">
             <div class="col-7">
@@ -54,4 +54,4 @@
         {{ $posts->links() }}
     @endsection
 
-</x-admin-master>
+</x-admin.admin-master>

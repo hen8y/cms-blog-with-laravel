@@ -1,4 +1,4 @@
-<x-admin-master>
+<x-admin.admin-master>
     @section('content')
         <h1 class="col-12 mb-5">Create Post</h1>
 
@@ -29,4 +29,4 @@
                     <button class="btn btn-primary">Submit</button>
                 </form>
     @endsection
-</x-admin-master>
+</x-admin.admin-master>

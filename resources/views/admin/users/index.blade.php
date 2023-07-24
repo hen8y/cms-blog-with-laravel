@@ -1,4 +1,4 @@
-<x-admin-master>
+<x-admin.admin-master>
     @section('content')
         <h1>Users</h1>
 
@@ -19,7 +19,7 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                <td>{{ $user->username }}</td>
+                <td><a href="{{ route('user.profile.show', $user->id) }}">{{ $user->username }}</a>
                 <td>{{ $user->name}}</td>
                 <td><img src="{{ $user->avatar }}" style="width:150px;height:60px"></td>
                 <td>{{ $user->email}}</td>
@@ -36,4 +36,4 @@
         </table>
 
     @endsection
-</x-admin-master>
+</x-admin.admin-master>

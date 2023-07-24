@@ -136,10 +136,10 @@
         <div class="menu-sidebar__content js-scrollbar1">
             <nav class="navbar-sidebar">
                 <ul class="list-unstyled navbar__list">
-                    <x-admin-sidebar-posts-links></x-admin-sidebar-posts-links>
+                    <x-admin.sidebar.admin-sidebar-posts-links></x-admin.sidebar.admin-sidebar-posts-links>
 
                     @if(auth()->user()->userHasRole('Admin'))
-                        <x-admin-sidebar-users-links></x-admin-sidebar-users-links>
+                        <x-admin.sidebar.admin-sidebar-users-links></x-admin.sidebar.admin-sidebar-users-links>
                     @endif
                 </ul>
             </nav>
@@ -273,7 +273,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <x-admin-top-navbar-user-information></x-admin-top-navbar-user-information>
+                                <x-admin.topnav.admin-top-navbar-user-information></x-admin.topnav.admin-top-navbar-user-information>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-<x-admin-master>
+<x-admin.admin-master>
 @section('content')
 
     <h1>User Profile For: {{ $user->name }}</h1>
@@ -9,7 +9,7 @@
             <form action="{{ route('user.profile.update', $user) }}" method="post" enctype="multipart/form-data" class="w-100">
                 @csrf
                 @method('PUT')
-                <img src="{{ $user->avatar }}" alt="" class="mb-3 mt-2">
+                <img src="{{ $user->avatar }}" style="height: 160px" alt="" class="mb-3 mt-2">
                 <div class="form-group">
                     <input type="file" name="avatar" id="">
                 </div>
@@ -75,8 +75,59 @@
                             <div class="alert-danger">{{ $message }}</div>
                         @enderror
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">Update</button>
         </div>
     </div>
+    <div class="row ">
+        <table class="col-12 hello mt-5 mb-5">
+            <tr class="thead">
+                <th>Options</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Attach</th>
+                <th>Detach</th>
+            </tr>
+            @foreach ($roles as $role)
+            <tr>
+                <td><input type="checkbox" 
+                            @foreach ($user->roles as $u_role)
+                                @if($u_role->slug == $role->slug )
+                                    checked
+                                @endif
+                            @endforeach
+                    >
+                </td>
+                <td>{{ $role->id }}</td>
+                <td>{{ $role->name}}</td>
+                <td>{{ $role->slug }}</td>
+                <td>
+                    <form  method="post" action="{{ route('user.role.attach', $user) }}">
+                        @method('PUT')
+                        @csrf
+                        <input type="hidden" name="role" value="{{ $role->id }}">
+                        <button class="btn btn-info"
+                                @if($user->roles->contains($role))
+                                    disabled
+                                @endif
+                        >Attach</button>
+                    </form>
+                </td>
+                <td>
+                    <form  method="post" action="{{ route('user.role.detach', $user) }}">
+                        @method('PUT')
+                        @csrf
+                        <input type="hidden" name="role" value="{{ $role->id }}">
+                        <button 
+                                @if(!$user->roles->contains($role))
+                                    disabled
+                                @endif
+                            class="btn btn-danger">Detach</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
 @endsection
-</x-admin-master>
+</x-admin.admin-master>

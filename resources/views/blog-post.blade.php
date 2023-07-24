@@ -1,4 +1,4 @@
-<x-home-master>
+<x-home.home-master>
 
 
     @section('content')
@@ -69,4 +69,4 @@
 
 
 
-</x-home-master>
+</x-home.home-master>

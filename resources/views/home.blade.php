@@ -1,4 +1,4 @@
-<x-home-master>
+<x-home.home-master>
 @section('content')
 @foreach ($posts as $post)
     ​ <article>
@@ -65,4 +65,4 @@
 </section>
 
 @endsection
-</x-home-master>
+</x-home.home-master>
