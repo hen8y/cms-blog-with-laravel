@@ -1,3 +1,20 @@
+# simple Blog applicatoin in laravel
+
+## what it can do 
+
+- It is simple blogging app.
+- users can login/register
+- users can write/update blogs
+- users can read blogs
+- users can comment on blogs
+
+
+## Install
+
+ download source code and add .env file to blog directory. Config .env file 
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
