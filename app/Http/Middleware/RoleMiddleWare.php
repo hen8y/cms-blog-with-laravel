@@ -23,3 +23,4 @@ class RoleMiddleWare
         return $next($request);
     }
 }
+

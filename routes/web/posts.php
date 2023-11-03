@@ -10,4 +10,3 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/posts/{post}/destroy','\App\Http\Controllers\PostController@destroy')->name('post.destroy');
     Route::get('/admin/posts/{post}/edit','\App\Http\Controllers\PostController@edit')->name('post.edit');
 });
-?>

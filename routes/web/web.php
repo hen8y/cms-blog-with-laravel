@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{post}','\App\Http\Controllers\PostController@show')->name('post');
 
-
+Route::get('/hello','\App\Http\Controllers\AdminsController@hello')->name('admin.index');
 Route::middleware('auth')->group(function () {
     
     Route::get('/admin','\App\Http\Controllers\AdminsController@index')->name('admin.index');
